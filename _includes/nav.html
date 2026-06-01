@@ -1,0 +1,19 @@
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <a href="{{ site.baseurl }}/" class="nav-brand">Aranya Dutta</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" aria-hidden="true" />
+      <label for="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <ul class="nav-links" role="list">
+        <li><a href="{{ site.baseurl }}/blog" {% if page.url contains '/blog' %}class="active"{% endif %}>Blog</a></li>
+        <li><a href="{{ site.baseurl }}/projects" {% if page.url contains '/projects' %}class="active"{% endif %}>Projects</a></li>
+        <li><a href="{{ site.baseurl }}/resume" {% if page.url contains '/resume' %}class="active"{% endif %}>Resume</a></li>
+        <li><a href="{{ site.baseurl }}/about" {% if page.url contains '/about' %}class="active"{% endif %}>About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

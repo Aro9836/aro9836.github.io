@@ -1,0 +1,10 @@
+{
+  "name": "@workspace/portfolio-jekyll",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "bundle exec jekyll serve --host 0.0.0.0 --port $PORT --livereload --incremental --future",
+    "build": "JEKYLL_ENV=production bundle exec jekyll build",
+    "install-gems": "bundle install"
+  }
+}

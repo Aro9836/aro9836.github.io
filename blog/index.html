@@ -1,0 +1,53 @@
+---
+layout: base
+title: Blog
+description: "Technical articles and notes by Aranya Dutta on backend engineering, Linux, Go, Python, competitive programming, and more."
+keywords: "blog, backend engineering, Python, Linux, Go, competitive programming"
+permalink: /blog/
+---
+
+<div class="blog-header">
+  <div class="container">
+    <h1 class="page-title">Blog</h1>
+    <p class="page-subtitle">Engineering notes, project write-ups, and learning logs.</p>
+  </div>
+</div>
+
+<div class="blog-posts">
+  <div class="container">
+    {% for post in paginator.posts %}
+    <article class="blog-post-card">
+      <div class="blog-post-meta">
+        <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%B %-d, %Y" }}
+        </time>
+        {% if post.tags %}
+        <div class="post-tags">
+          {% for tag in post.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <h2 class="blog-post-title">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </h2>
+      {% if post.excerpt %}
+      <p class="blog-post-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+
+    {% if paginator.total_pages > 1 %}
+    <nav class="pagination" aria-label="Blog pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}">&larr; Newer</a>
+      {% endif %}
+      <span class="current">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}">Older &rarr;</a>
+      {% endif %}
+    </nav>
+    {% endif %}
+  </div>
+</div>
